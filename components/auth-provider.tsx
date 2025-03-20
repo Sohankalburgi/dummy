@@ -12,7 +12,7 @@ type User = {
 
 type AuthContextType = {
   user: User | null
-  login: (email: string, password: string) => Promise<void>
+  login: (user : User) => Promise<void>
   signup: (fullName: string, email: string, password: string) => Promise<void>
   logout: () => void
   loading: boolean
@@ -34,23 +34,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setLoading(false)
   }, [])
 
-  const login = async (email: string, password: string) => {
+  const login = (user:User) => {
     setLoading(true)
     try {
-      // Mock login - in a real app, this would be an API call
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 1000))
 
       // For demo purposes, any email/password combination works
-      const mockUser = {
-        id: "user-" + Math.random().toString(36).substr(2, 9),
-        email,
-        fullName: email.split("@")[0],
-      }
+     
 
-      setUser(mockUser)
-      localStorage.setItem("user", JSON.stringify(mockUser))
-      router.push("/dashboard")
+      setUser(user)
+      localStorage.setItem("user", JSON.stringify(user))
+      router.push("/dashboard");
     } catch (error) {
       console.error("Login failed:", error)
       throw error

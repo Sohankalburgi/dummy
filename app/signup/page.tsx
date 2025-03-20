@@ -15,6 +15,8 @@ import { useAuth } from "@/components/auth-provider"
 import { motion } from "framer-motion"
 import { Loader2, Leaf, Mail, Lock, User, ArrowRight } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useRouter } from "next/navigation"
+import axios from "axios"
 
 export default function SignupPage() {
   const { t } = useLanguage()
@@ -25,7 +27,7 @@ export default function SignupPage() {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [acceptTerms, setAcceptTerms] = useState(false)
   const [error, setError] = useState("")
-
+  const navigate = useRouter();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
@@ -46,9 +48,26 @@ export default function SignupPage() {
     }
 
     try {
-      await signup(fullName, email, password)
-    } catch (err) {
-      setError("Signup failed. Please try again.")
+
+      const response = await axios.post(`http://localhost:4000/user/signup`, {
+        data: {
+          email: email,
+          fullName: fullName,
+          password: password,
+        },
+        headers: {
+          'Accept-Language': 'en',
+        }
+      })
+      if (response.status === 200 && response.data.success == true) {
+
+        navigate.push('/login');
+      }
+      else if (response.data.success === false) {
+        setError(response.data.message)
+      }
+    } catch (error: any) {
+      setError(error.message);
     }
   }
 

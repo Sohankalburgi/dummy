@@ -14,29 +14,44 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { useAuth } from "@/components/auth-provider"
 import { motion } from "framer-motion"
 import { Loader2, Leaf, Mail, Lock, ArrowRight } from "lucide-react"
-
+import axios from "axios"
+import { useRouter } from "next/navigation"
 export default function LoginPage() {
   const { t } = useLanguage()
   const { login, loading } = useAuth()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [fullName,setfullName] = useState("")
   const [error, setError] = useState("")
+  const navigate = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
 
-    if (!email || !password) {
-      setError("Please fill in all fields")
-      return
-    }
-
     try {
-      await login(email, password)
-    } catch (err) {
-      setError("Invalid email or password")
-    }
+
+      const response = await axios.post(`http://localhost:4000/user/login`, {
+        data: {
+          email: email,
+          password: password,
+        },
+        headers: {
+          'Accept-Language': 'en',
+        }
+      })
+      console.log(response.data);
+      if (response.status === 200 && response.data.success == true) {
+        const token = response.data.token;
+        const user = response.data.user;
+        login(user);
+
+      }
+      else if(response.data.success === false) {
+       setError(response.data.message)
+      }
+    } catch (error: any) {
+      setError(error.message);
+    } 
   }
 
   return (

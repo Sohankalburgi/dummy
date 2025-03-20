@@ -122,7 +122,7 @@ export default function LandingPage() {
               <LanguageSelector />
               <ThemeToggle />
               <Link href="/login">
-                <Button variant="outline" size="sm" className="border-green-200 dark:border-green-800">
+                <Button variant="outline" size="sm" className="border-orange-200 dark:border-orange-50">
                   {t("auth.login")}
                 </Button>
               </Link>
@@ -214,7 +214,7 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-green-950 dark:to-green-900 -z-10" />
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -223,7 +223,7 @@ export default function LandingPage() {
               transition={{ duration: 0.5 }}
               className="space-y-6"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-800 dark:text-green-300 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-800 dark:text-or-300 leading-tight">
                 Advanced Areca Nut Disease Detection
               </h1>
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
