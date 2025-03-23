@@ -42,9 +42,14 @@ const translations = {
     "services.book": "Book Service",
     "services.name": "Name",
     "services.phone": "Phone",
+    "services.state": "State",
+    "services.country": "Country",
+    "services.district": "District",
     "services.land": "Land (sq ft)",
-    "services.location": "Location",
+    "services.crop": "Crop",
+    "services.type": "Service Type",
     "services.submit": "Submit",
+  
 
     // Chatbot
     "chatbot.title": "AI Chatbot",
@@ -86,17 +91,20 @@ const translations = {
     "auth.noAccount": "खाता नहीं है?",
 
     // Services
-    "services.title": "हमारी सेवाएं",
+    "services.title": "हमारी सेवाएँ",
     "services.rover": "रोवर सेवा",
     "services.drone": "ड्रोन सेवा",
     "services.both": "रोवर और ड्रोन सेवा",
     "services.book": "सेवा बुक करें",
     "services.name": "नाम",
-    "services.phone": "फोन",
+    "services.phone": "फ़ोन",
+    "services.state": "राज्य",
+    "services.country": "देश",
+    "services.district": "जिला",
     "services.land": "भूमि (वर्ग फुट)",
-    "services.location": "स्थान",
-    "services.submit": "जमा करें",
-
+    "services.crop": "फसल",
+    "services.type": "सेवा का प्रकार",
+    "services.submit": "प्रस्तुत करें",
     // Chatbot
     "chatbot.title": "AI चैटबॉट",
     "chatbot.placeholder": "कृषि के बारे में कुछ भी पूछें...",
@@ -137,15 +145,19 @@ const translations = {
     "auth.noAccount": "ಖಾತೆ ಇಲ್ಲವೇ?",
 
     // Services
-    "services.title": "ನಮ್ಮ ಸೇವೆಗಳು",
+   "services.title": "ನಮ್ಮ ಸೇವೆಗಳು",
     "services.rover": "ರೋವರ್ ಸೇವೆ",
     "services.drone": "ಡ್ರೋನ್ ಸೇವೆ",
     "services.both": "ರೋವರ್ & ಡ್ರೋನ್ ಸೇವೆ",
     "services.book": "ಸೇವೆ ಬುಕ್ ಮಾಡಿ",
     "services.name": "ಹೆಸರು",
     "services.phone": "ಫೋನ್",
-    "services.land": "ಭೂಮಿ (ಚದರ ಅಡಿ)",
-    "services.location": "ಸ್ಥಳ",
+    "services.state": "ರಾಜ್ಯ",
+    "services.country": "ದೇಶ",
+    "services.district": "ಜಿಲ್ಲೆ",
+    "services.land": "ಭೂಮಿ (ಚ.ಅಡಿ)",
+    "services.crop": "ಕೃಷಿ ಬೆಳೆ",
+    "services.type": "ಸೇವೆಯ ಪ್ರಕಾರ",
     "services.submit": "ಸಲ್ಲಿಸಿ",
 
     // Chatbot

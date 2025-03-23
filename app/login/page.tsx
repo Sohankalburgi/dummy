@@ -43,8 +43,7 @@ export default function LoginPage() {
       if (response.status === 200 && response.data.success == true) {
         const token = response.data.token;
         const user = response.data.user;
-        login(user);
-
+        login({...user, token : token});
       }
       else if(response.data.success === false) {
        setError(response.data.message)

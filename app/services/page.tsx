@@ -21,6 +21,7 @@ import { DrillIcon as Drone, Tractor, Combine, Microscope, AlertTriangle, Leaf }
 import { motion } from "framer-motion"
 import { useToast } from "@/components/ui/use-toast"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import axios from "axios"
 
 export default function ServicesPage() {
   const { t } = useLanguage()
@@ -30,10 +31,13 @@ export default function ServicesPage() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    state: "",
+    country: "",
+    district: "",
     land: "",
-    location: "",
-    cropType: "areca-nut",
-  })
+    crop: "areca-nut", // Updated cropType to crop
+  });
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -49,11 +53,31 @@ export default function ServicesPage() {
     setOpen(true)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault()
-
+    const token = localStorage.getItem('user');
+    const userId = localStorage.getItem('userId');
     // In a real app, this would submit to an API
     console.log("Booking service:", selectedService, formData)
+
+    const response = await axios.post('http://localhost:4000/service/booking',{
+      data : {
+        name: formData.name,
+        phone: formData.phone,
+        state: formData.state,
+        country: formData.country,
+        district: formData.district,
+        type: selectedService,
+        land: formData.land,
+        crop: formData.crop, 
+        userId : userId,
+      },
+      headers: {
+        'Accept-Language': 'en',
+      }
+    });
+
+    if(response.status === 200 || response.data.success){
 
     toast({
       title: "Service Booked",
@@ -65,10 +89,13 @@ export default function ServicesPage() {
     setFormData({
       name: "",
       phone: "",
+      state: "",
+      country: "",
+      district: "",
       land: "",
-      location: "",
-      cropType: "areca-nut",
+      crop: "", // Updated cropType to crop
     })
+  }
   }
 
   const container = {
@@ -442,7 +469,7 @@ export default function ServicesPage() {
             <DialogDescription>Fill in your details to book this service for your plantation</DialogDescription>
           </DialogHeader>
           <form onSubmit={handleSubmit}>
-            <div className="grid gap-4 py-4">
+            <div className="grid grid-2 gap-4 py-4">
               <div className="grid gap-2">
                 <Label htmlFor="name">{t("services.name")}</Label>
                 <Input
@@ -466,18 +493,37 @@ export default function ServicesPage() {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="cropType">Crop Type</Label>
-                <Select value={formData.cropType} onValueChange={(value) => handleSelectChange("cropType", value)}>
-                  <SelectTrigger className="border-green-200 dark:border-green-800">
-                    <SelectValue placeholder="Select crop type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="areca-nut">Areca Nut</SelectItem>
-                    <SelectItem value="coconut">Coconut</SelectItem>
-                    <SelectItem value="coffee">Coffee</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Label htmlFor="state">{t("services.state")}</Label>
+                <Input
+                  id="state"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleInputChange}
+                  className="border-green-200 dark:border-green-800"
+                  required
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="country">{t("services.country")}</Label>
+                <Input
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleInputChange}
+                  className="border-green-200 dark:border-green-800"
+                  required
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="district">{t("services.district")}</Label>
+                <Input
+                  id="district"
+                  name="district"
+                  value={formData.district}
+                  onChange={handleInputChange}
+                  className="border-green-200 dark:border-green-800"
+                  required
+                />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="land">{t("services.land")}</Label>
@@ -492,16 +538,20 @@ export default function ServicesPage() {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="location">{t("services.location")}</Label>
-                <Input
-                  id="location"
-                  name="location"
-                  value={formData.location}
-                  onChange={handleInputChange}
-                  className="border-green-200 dark:border-green-800"
-                  required
-                />
+                <Label htmlFor="crop">{t("services.crop")}</Label>
+                <Select value={formData.crop || ""} onValueChange={(value) => handleSelectChange("crop", value)}>
+                  <SelectTrigger className="border-green-200 dark:border-green-800">
+                    <SelectValue placeholder="Select crop type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="areca-nut">Areca Nut</SelectItem>
+                    <SelectItem value="coconut">Coconut</SelectItem>
+                    <SelectItem value="coffee">Coffee</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
+              
             </div>
             <DialogFooter>
               <Button type="submit" className="bg-green-600 hover:bg-green-700 text-white">
@@ -509,6 +559,7 @@ export default function ServicesPage() {
               </Button>
             </DialogFooter>
           </form>
+
         </DialogContent>
       </Dialog>
     </div>

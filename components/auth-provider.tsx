@@ -8,6 +8,7 @@ type User = {
   id: string
   email: string
   fullName: string
+  token : string
 }
 
 type AuthContextType = {
@@ -43,6 +44,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       setUser(user)
       localStorage.setItem("user", JSON.stringify(user))
+      localStorage.setItem("userId",user.id)
       router.push("/dashboard");
     } catch (error) {
       console.error("Login failed:", error)
@@ -56,18 +58,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setLoading(true)
     try {
       // Mock signup - in a real app, this would be an API call
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      // Simulate API dela
 
-      const mockUser = {
-        id: "user-" + Math.random().toString(36).substr(2, 9),
-        email,
-        fullName,
-      }
-
-      setUser(mockUser)
-      localStorage.setItem("user", JSON.stringify(mockUser))
-      router.push("/dashboard")
     } catch (error) {
       console.error("Signup failed:", error)
       throw error

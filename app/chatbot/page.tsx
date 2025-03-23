@@ -1,73 +1,86 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState, useRef, useEffect } from "react"
-import { useLanguage } from "@/components/language-provider"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Upload, Send, Bot, User } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import { useChat } from "ai/react"
+import type React from "react";
+import { useState, useRef, useEffect } from "react";
+import { useLanguage } from "@/components/language-provider";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Upload, Send, Bot, User } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ChatbotPage() {
-  const { t } = useLanguage()
-  const [imageUrl, setImageUrl] = useState<string | null>(null)
-  const fileInputRef = useRef<HTMLInputElement>(null)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const { t } = useLanguage();
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [messages, setMessages] = useState<{ role: "user" | "assistant"; content: string }[]>([]);
+  const [input, setInput] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // Using AI SDK's useChat hook for chat functionality
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: "/api/chat", // This would be your actual API endpoint in a real app
-    onFinish: () => {
-      // Scroll to bottom when a new message is received
-      setTimeout(() => scrollToBottom(), 100)
-    },
-  })
-
+  // Function to scroll to the bottom of the chat
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    scrollToBottom();
+  }, [messages]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+  
+    const newMessage = { role: "user", content: input };
+    setMessages((prev) => [...prev, newMessage]);
+    setInput("");
+    setIsLoading(true);
+  
+    try {
+      const response = await fetch("http://localhost:4000/chatbot/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: input }), // Send user input as 'prompt'
+      });
+  
+      const data = await response.json();
+      
+      // The response format is { message: result }
+      setMessages((prev) => [...prev, { role: "assistant", content: data.message }]);
+    } catch (error) {
+      setMessages((prev) => [...prev, { role: "assistant", content: "Error fetching response. Try again!" }]);
+    }
+  
+    setIsLoading(false);
+  };
+  
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
+    const file = e.target.files?.[0];
     if (file) {
-      const url = URL.createObjectURL(file)
-      setImageUrl(url)
+      const url = URL.createObjectURL(file);
+      setImageUrl(url);
     }
-  }
+  };
 
   const handleUploadClick = () => {
-    fileInputRef.current?.click()
-  }
+    fileInputRef.current?.click();
+  };
 
   const handleClearImage = () => {
-    setImageUrl(null)
+    setImageUrl(null);
     if (fileInputRef.current) {
-      fileInputRef.current.value = ""
+      fileInputRef.current.value = "";
     }
-  }
-
-  // Mock messages for demonstration
-  const mockMessages = [
-    { role: "assistant", content: "Hello! How can I help you with your agricultural needs today?" },
-    { role: "user", content: "I'm having issues with my tomato plants. The leaves are turning yellow." },
-    {
-      role: "assistant",
-      content:
-        "Yellow leaves on tomato plants could indicate several issues: nutrient deficiency, overwatering, or pest problems. Can you share a photo of the affected leaves?",
-    },
-  ]
-
-  // Combine mock messages with AI SDK messages for demonstration
-  const displayMessages = messages.length > 0 ? messages : mockMessages
+  };
 
   return (
     <div className="space-y-6 mt-10 mx-10 p-10">
@@ -76,7 +89,7 @@ export default function ChatbotPage() {
         <p className="text-muted-foreground">Ask questions about agriculture and get AI-powered assistance</p>
       </div>
 
-      <Card className="h-[calc(100vh-200px)] ">
+      <Card className="h-[calc(100vh-200px)]">
         <CardHeader className="p-4 border-b">
           <CardTitle className="text-xl flex items-center gap-2">
             <Bot className="h-5 w-5 text-green-600" />
@@ -87,7 +100,7 @@ export default function ChatbotPage() {
         <CardContent className="p-0 flex flex-col h-[calc(100%-140px)]">
           <ScrollArea className="flex-grow p-4">
             <AnimatePresence initial={false}>
-              {displayMessages.map((message, index) => (
+              {messages.map((message, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
@@ -141,7 +154,7 @@ export default function ChatbotPage() {
             </div>
           )}
         </CardContent>
-        <CardFooter className="p-2 border-t ">
+        <CardFooter className="p-2 border-t">
           <form onSubmit={handleSubmit} className="flex w-full gap-2">
             <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" className="hidden" />
             <Button type="button" variant="outline" size="icon" onClick={handleUploadClick} className="shrink-0">
@@ -167,6 +180,5 @@ export default function ChatbotPage() {
         </CardFooter>
       </Card>
     </div>
-  )
+  );
 }
-
