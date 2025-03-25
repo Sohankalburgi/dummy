@@ -7,6 +7,10 @@ import { Button } from "@/components/ui/button"
 import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { motion } from "framer-motion"
+import drone from "../public/Screenshot 2025-03-07 183451.png"
+import farm1 from "../public/a-man-in-a-turban-stands-in-a-field-ai-generated-free-photo.jpg"
+import farm2 from "../public/happy-indian-farmer-his-farm_510370-880.jpg"
+import farm3 from "../public/portrait-smiling-indian-farmer-with-field-tractor-background_975284-5481.jpg"
 import {
   Leaf,
   ChevronRight,
@@ -22,6 +26,7 @@ import {
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import Image from "next/image"
 
 export default function LandingPage() {
   const { t } = useLanguage()
@@ -66,21 +71,21 @@ export default function LandingPage() {
       role: "Areca Nut Farmer",
       content:
         "AgroTech's disease detection system helped me identify koleroga disease early, saving over 70% of my plantation.",
-      image: "/placeholder.svg?height=80&width=80",
+      image: farm1,
     },
     {
       name: "Meena Patil",
       role: "Agricultural Cooperative Leader",
       content:
         "The drone and rover combination provides unprecedented insights into our areca nut plantations. Highly recommended!",
-      image: "/placeholder.svg?height=80&width=80",
+      image: farm2,
     },
     {
       name: "Dr. Suresh Gowda",
       role: "Agricultural Scientist",
       content:
         "The precision of AgroTech's disease prediction algorithms for areca nut is impressive. A game-changer for farmers.",
-      image: "/placeholder.svg?height=80&width=80",
+      image: farm3,
     },
   ]
 
@@ -400,8 +405,8 @@ export default function LandingPage() {
                 </TabsList>
                 <TabsContent value="drone" className="mt-0">
                   <div className="rounded-xl overflow-hidden shadow-lg">
-                    <img
-                      src="/placeholder.svg?height=300&width=500"
+                    <Image
+                      src={drone}
                       alt="Drone monitoring areca nut plantation"
                       className="w-full h-auto"
                     />
@@ -460,7 +465,7 @@ export default function LandingPage() {
                 <Card className="h-full border-green-100 dark:border-green-900">
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-4 mb-4">
-                      <img
+                      <Image
                         src={testimonial.image || "/placeholder.svg"}
                         alt={testimonial.name}
                         className="h-12 w-12 rounded-full object-cover"
@@ -491,33 +496,42 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <Card className="border-green-100 dark:border-green-900">
               <CardHeader>
-                <CardTitle className="text-xl text-green-700 dark:text-green-300">Rover Service</CardTitle>
+                <CardTitle className="text-xl text-green-700 dark:text-green-300">Rover And Drone Service</CardTitle>
                 <div className="text-3xl font-bold mt-2">
-                  ₹15,000<span className="text-sm font-normal text-gray-500 dark:text-gray-400">/month</span>
+                  ₹15,000<span className="text-sm font-normal text-gray-500 dark:text-gray-400">/Acre</span>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Weekly ground-level monitoring</span>
+                    <span>Disease detection</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Soil health analysis</span>
+                    <span>Crop suggestion</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Disease detection reports</span>
+                    <span>Multi-cropping</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Up to 5 acres coverage</span>
+                    <span>Manure and pesticide optimization</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-4 w-4 text-green-600" />
+                    <span>Expert advice and support</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-4 w-4 text-green-600" />
+                    <span>Community access</span>
                   </li>
                 </ul>
+
               </CardContent>
               <CardFooter>
                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white">Get Started</Button>
@@ -529,75 +543,50 @@ export default function LandingPage() {
                 Popular
               </div>
               <CardHeader>
-                <CardTitle className="text-xl text-green-700 dark:text-green-300">Drone Service</CardTitle>
+                <CardTitle className="text-xl text-green-700 dark:text-green-300">Rover And Drone Service</CardTitle>
                 <div className="text-3xl font-bold mt-2">
-                  ₹25,000<span className="text-sm font-normal text-gray-500 dark:text-gray-400">/month</span>
+                  ₹1,00,000/Acre<span className="text-sm font-normal text-gray-500 dark:text-gray-400"> /yearly</span>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Bi-weekly aerial monitoring</span>
+                    <span>Disease detection</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Multispectral imaging</span>
+                    <span>Crop suggestion</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Comprehensive disease mapping</span>
+                    <span>Multi-cropping</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Up to 10 acres coverage</span>
+                    <span>Manure and pesticide optimization</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>Treatment recommendations</span>
+                    <span>Expert advice and support</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-4 w-4 text-green-600" />
+                    <span>Community access</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-4 w-4 text-green-600" />
+                    <span>includes yearly crop season optimised care</span>
                   </li>
                 </ul>
+
               </CardContent>
               <CardFooter>
                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white">Get Started</Button>
               </CardFooter>
             </Card>
 
-            <Card className="border-green-100 dark:border-green-900">
-              <CardHeader>
-                <CardTitle className="text-xl text-green-700 dark:text-green-300">Complete Package</CardTitle>
-                <div className="text-3xl font-bold mt-2">
-                  ₹35,000<span className="text-sm font-normal text-gray-500 dark:text-gray-400">/month</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span>Weekly drone & rover monitoring</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span>Complete soil & plant analysis</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span>Advanced disease prediction</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span>Up to 15 acres coverage</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-green-600" />
-                    <span>Priority support & consultation</span>
-                  </li>
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full bg-green-600 hover:bg-green-700 text-white">Get Started</Button>
-              </CardFooter>
-            </Card>
+
           </div>
         </div>
       </section>

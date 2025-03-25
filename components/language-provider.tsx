@@ -36,8 +36,8 @@ const translations = {
 
     // Services
     "services.title": "Our Services",
-    "services.rover": "Rover Service",
-    "services.drone": "Drone Service",
+    "services.rover": "Rover Service And Drone Serivce",
+    "services.drone": "Drone Service And Rover Service yearly plan",
     "services.both": "Rover & Drone Service",
     "services.book": "Book Service",
     "services.name": "Name",
@@ -49,7 +49,7 @@ const translations = {
     "services.crop": "Crop",
     "services.type": "Service Type",
     "services.submit": "Submit",
-  
+
 
     // Chatbot
     "chatbot.title": "AI Chatbot",
@@ -91,9 +91,9 @@ const translations = {
     "auth.noAccount": "खाता नहीं है?",
 
     // Services
-    "services.title": "हमारी सेवाएँ",
-    "services.rover": "रोवर सेवा",
-    "services.drone": "ड्रोन सेवा",
+    "services.title": "हमारी सेवाएँ",    
+     "services.rover": "रोवर सेवा और ड्रोन सेवा",
+  "services.drone": "ड्रोन सेवा और रोवर सेवा की वार्षिक योजना",
     "services.both": "रोवर और ड्रोन सेवा",
     "services.book": "सेवा बुक करें",
     "services.name": "नाम",
@@ -145,9 +145,10 @@ const translations = {
     "auth.noAccount": "ಖಾತೆ ಇಲ್ಲವೇ?",
 
     // Services
-   "services.title": "ನಮ್ಮ ಸೇವೆಗಳು",
-    "services.rover": "ರೋವರ್ ಸೇವೆ",
-    "services.drone": "ಡ್ರೋನ್ ಸೇವೆ",
+    "services.title": "ನಮ್ಮ ಸೇವೆಗಳು",
+   
+    "services.rover": "ರೋವರ್ ಸೇವೆ ಮತ್ತು ಡ್ರೋನ್ ಸೇವೆ",
+    "services.drone": "ಡ್ರೋನ್ ಸೇವೆ ಮತ್ತು ರೋವರ್ ಸೇವೆಯ ವಾರ್ಷಿಕ ಯೋಜನೆ",
     "services.both": "ರೋವರ್ & ಡ್ರೋನ್ ಸೇವೆ",
     "services.book": "ಸೇವೆ ಬುಕ್ ಮಾಡಿ",
     "services.name": "ಹೆಸರು",

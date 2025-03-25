@@ -1,6 +1,8 @@
 'use client';
 
 import axios from 'axios';
+import { Leaf } from 'lucide-react';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 export default function AdminDashboard() {
@@ -27,41 +29,60 @@ export default function AdminDashboard() {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
-            <table className="w-full table-auto border-collapse border border-gray-300">
-                <thead>
-                    <tr className="bg-green-500">
-                    <th className="border p-2">SL No</th>
-                        
-                        <th className="border p-2">Name</th>
-                        <th className="border p-2">Phone</th>
-                        <th className="border p-2">State</th>
-                        <th className="border p-2">Country</th>
-                        <th className="border p-2">District</th>
-                        <th className="border p-2">Land</th>
-                        <th className="border p-2">Crop</th>
-                        <th className="border p-2">Type</th>
-                        <th className="border p-2">User ID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {dataList.map((book,index) => (
-                        <tr key={book._id} className="hover:bg-orange-700">
-                            <td className="border p-2">{index}</td>
-                            <td className="border p-2">{book.name}</td>
-                            <td className="border p-2">{book.phone}</td>
-                            <td className="border p-2">{book.state}</td>
-                            <td className="border p-2">{book.country}</td>
-                            <td className="border p-2">{book.district}</td>
-                            <td className="border p-2">{book.land}</td>
-                            <td className="border p-2">{book.crop}</td>
-                            <td className="border p-2">{book.type}</td>
-                            <td className="border p-2">{book.userId}</td>
+        <>
+            <nav>
+                <div className='
+                flex gap-6 bg-green-400 p-5 justify-between'>
+                    <div className='flex gap-4'>
+                        <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
+                            <Leaf className="h-4 w-4 text-white" />
+                        </div>
+                        <span className="font-bold text-lg">AgroTech</span>
+                    </div>
+                    <div className='flex gap-6'>
+                        <Link href={"/adminDashboard"}> Dashboard</Link>
+                        <Link href={"/adminml"}>Machine Learning Model</Link>
+                        <Link href={"/admindl"}> Deep Learing Model</Link>
+                    </div>
+                </div>
+            </nav>
+            <div className="p-4">
+
+                <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
+                <table className="w-full table-auto border-collapse border border-gray-300">
+                    <thead>
+                        <tr className="bg-green-500">
+                            <th className="border p-2">SL No</th>
+
+                            <th className="border p-2">Name</th>
+                            <th className="border p-2">Phone</th>
+                            <th className="border p-2">State</th>
+                            <th className="border p-2">Country</th>
+                            <th className="border p-2">District</th>
+                            <th className="border p-2">Land</th>
+                            <th className="border p-2">Crop</th>
+                            <th className="border p-2">Type</th>
+                            <th className="border p-2">User ID</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        {dataList.map((book, index) => (
+                            <tr key={book._id} className="hover:bg-orange-700">
+                                <td className="border p-2">{index}</td>
+                                <td className="border p-2">{book.name}</td>
+                                <td className="border p-2">{book.phone}</td>
+                                <td className="border p-2">{book.state}</td>
+                                <td className="border p-2">{book.country}</td>
+                                <td className="border p-2">{book.district}</td>
+                                <td className="border p-2">{book.land}</td>
+                                <td className="border p-2">{book.crop}</td>
+                                <td className="border p-2">{book.type}</td>
+                                <td className="border p-2">{book.userId}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </>
     );
 }

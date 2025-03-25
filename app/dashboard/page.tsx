@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Settings, MessageSquare, Leaf, Database } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-
+import  image1 from "../../public/areca-tree-4754234_1280.jpg" 
+import Image from "next/image"
 export default function DashboardPage() {
   const { t } = useLanguage()
   const { user } = useAuth()
@@ -104,11 +105,11 @@ export default function DashboardPage() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-2">
-            <img
-              src="/placeholder.svg?height=200&width=400"
+          <div className="grid gap-4 md:grid-cols-2 h-full">
+            <Image
+              src={image1}
               alt="Agriculture technology"
-              className="rounded-lg object-cover w-full h-48"
+              className="rounded-lg object-cover w-full h-72"
             />
             <div className="space-y-4">
               <p>

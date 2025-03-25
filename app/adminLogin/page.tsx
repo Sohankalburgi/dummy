@@ -44,7 +44,7 @@ export default function AdminLoginPage() {
                 const token = response.data.token;
                 const user = response.data.user;
                 login(user);
-
+                navigate.push('/adminDashboard')
             }
             else if (response.data.success === false) {
                 setError(response.data.message)

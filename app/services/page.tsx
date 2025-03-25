@@ -115,53 +115,27 @@ export default function ServicesPage() {
 
   const services = [
     {
-      id: "rover",
+      id: "plan 1",
       title: t("services.rover"),
       description:
-        "Our rover service provides ground-level monitoring of your crops, soil analysis, and targeted treatments.",
-      icon: Tractor,
+        "Our rover and drone service provides ground-level and arieal-level monitoring of your crops, soil analysis, and targeted treatments.",
+      icon: Leaf,
       color: "bg-green-100 dark:bg-green-900",
       iconColor: "text-green-600 dark:text-green-400",
-      features: [
-        "Detailed soil health analysis",
-        "Close-up plant inspection",
-        "Precise disease detection",
-        "Targeted treatment application",
-        "Weekly monitoring reports",
-      ],
+      features: ["Disease detection", "Crop suggestion", "Multi-cropping", "Manure and pesticide optimization", "Expert advice and support", "Community access"]
     },
     {
-      id: "drone",
+      id: "plan 2x",
       title: t("services.drone"),
       description:
-        "Drone service offers aerial imaging, crop health assessment, and large area monitoring for efficient farm management.",
+        "Drone and rover service offers aerial imaging, crop health assessment for year, and large area monitoring for efficient farm management.",
       icon: Drone,
       color: "bg-blue-100 dark:bg-blue-900",
       iconColor: "text-blue-600 dark:text-blue-400",
-      features: [
-        "High-resolution aerial imaging",
-        "Multispectral analysis",
-        "Large area coverage",
-        "Early disease pattern detection",
-        "Bi-weekly comprehensive reports",
-      ],
+      features: ["Disease detection", "Crop suggestion", "Multi-cropping", "Manure and pesticide optimization", "Expert advice and support", "Community access","includes yearly crop season optimised care"]
+      ,
     },
-    {
-      id: "both",
-      title: t("services.both"),
-      description:
-        "Comprehensive solution combining both rover and drone services for complete farm monitoring and management.",
-      icon: Combine,
-      color: "bg-purple-100 dark:bg-purple-900",
-      iconColor: "text-purple-600 dark:text-purple-400",
-      features: [
-        "Complete aerial and ground monitoring",
-        "Comprehensive data integration",
-        "Advanced predictive analytics",
-        "Priority support and consultation",
-        "Weekly detailed reports and recommendations",
-      ],
-    },
+  
   ]
 
   const arecanutDiseases = [
@@ -216,7 +190,7 @@ export default function ServicesPage() {
         </TabsList>
 
         <TabsContent value="services" className="space-y-6">
-          <motion.div className="grid gap-6 md:grid-cols-3" variants={container} initial="hidden" animate="show">
+          <motion.div className="grid gap-6 md:grid-cols-2" variants={container} initial="hidden" animate="show">
             {services.map((service) => (
               <motion.div key={service.id} variants={item}>
                 <Card className="h-full flex flex-col border-green-100 dark:border-green-800 overflow-hidden">
