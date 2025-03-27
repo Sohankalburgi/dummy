@@ -29,6 +29,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
 import all from ".././public/Agitech (1).png"
+import logo from "../public/Krishi Bhoomi AI.png"
 export default function LandingPage() {
   const { t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
@@ -99,7 +100,11 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
-              <Leaf className="h-4 w-4 text-white" />
+              <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
             </div>
             <span className="font-bold text-lg text-green-700 dark:text-green-400">{t("app.name")}</span>
           </Link>
@@ -152,7 +157,11 @@ export default function LandingPage() {
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-2">
                       <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
-                        <Leaf className="h-4 w-4 text-white" />
+                        <Image
+                          src={logo}
+                          alt="Logo"
+                          className="h-8 w-8 rounded-full"
+                        />
                       </div>
                       <span className="font-bold text-lg text-green-700 dark:text-green-400">{t("app.name")}</span>
                     </div>
@@ -260,7 +269,7 @@ export default function LandingPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                
+
                   src={all}
                   alt="Areca nut plantation with drone monitoring"
                   className="w-full h-auto"
@@ -623,7 +632,11 @@ export default function LandingPage() {
             <div>
               <Link href="/" className="flex items-center gap-2 mb-4">
                 <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
-                  <Leaf className="h-4 w-4 text-white" />
+                <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
                 </div>
                 <span className="font-bold text-lg text-green-700 dark:text-green-400">{t("app.name")}</span>
               </Link>

@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Leaf, Droplets, Sun, Thermometer } from "lucide-react"
 import { motion } from "framer-motion"
-
+import logo from "../../public/Krishi Bhoomi AI.png"
 export default function CropSuggestionPage() {
   const { t } = useLanguage()
   const [formData, setFormData] = useState({
@@ -156,7 +156,11 @@ export default function CropSuggestionPage() {
           <CardContent>
             {suggestions.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-64 text-center text-muted-foreground">
-                <Leaf className="h-12 w-12 mb-4 text-green-200" />
+               <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
                 <p>Enter your details and submit to get crop suggestions</p>
               </div>
             ) : (
@@ -187,7 +191,11 @@ export default function CropSuggestionPage() {
                                 <span>{crop.temperature}</span>
                               </div>
                               <div className="flex items-center gap-1">
-                                <Leaf className="h-3 w-3" />
+                              <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
                                 <span>{crop.growthPeriod}</span>
                               </div>
                             </div>

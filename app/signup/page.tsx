@@ -17,7 +17,8 @@ import { Loader2, Leaf, Mail, Lock, User, ArrowRight } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { useRouter } from "next/navigation"
 import axios from "axios"
-
+import logo from "../../public/Krishi Bhoomi AI.png"
+import Image from "next/image"
 export default function SignupPage() {
   const { t } = useLanguage()
   const { signup, loading } = useAuth()
@@ -78,7 +79,11 @@ export default function SignupPage() {
         <div>
           <Link href="/" className="flex items-center gap-2">
             <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
-              <Leaf className="h-6 w-6 text-green-600" />
+            <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
             </div>
             <span className="font-bold text-2xl">{t("app.name")}</span>
           </Link>
@@ -136,7 +141,11 @@ export default function SignupPage() {
 
         <div className="md:hidden flex items-center gap-2 mb-8">
           <div className="h-10 w-10 rounded-full bg-green-600 flex items-center justify-center">
-            <Leaf className="h-6 w-6 text-white" />
+          <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
           </div>
           <span className="font-bold text-2xl text-green-700 dark:text-green-400">{t("app.name")}</span>
         </div>

@@ -15,7 +15,9 @@ import { useAuth } from "@/components/auth-provider"
 import { motion } from "framer-motion"
 import { Loader2, Leaf, Mail, Lock, ArrowRight } from "lucide-react"
 import axios from "axios"
+import logo from "../../public/Krishi Bhoomi AI.png"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 export default function LoginPage() {
   const { t } = useLanguage()
   const { login, loading } = useAuth()
@@ -60,7 +62,11 @@ export default function LoginPage() {
         <div>
           <Link href="/" className="flex items-center gap-2">
             <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center">
-              <Leaf className="h-6 w-6 text-green-600" />
+            <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
             </div>
             <span className="font-bold text-2xl">{t("app.name")}</span>
           </Link>
@@ -73,14 +79,22 @@ export default function LoginPage() {
           <div className="grid grid-cols-2 gap-4 mt-8">
             <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mb-3">
-                <Leaf className="h-5 w-5" />
+              <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
               </div>
               <h3 className="font-medium">Disease Detection</h3>
               <p className="text-sm opacity-80">Advanced AI for early detection of areca nut diseases</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mb-3">
-                <Leaf className="h-5 w-5" />
+              <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
               </div>
               <h3 className="font-medium">Drone Monitoring</h3>
               <p className="text-sm opacity-80">Aerial surveillance for comprehensive crop analysis</p>
@@ -100,7 +114,11 @@ export default function LoginPage() {
 
         <div className="md:hidden flex items-center gap-2 mb-8">
           <div className="h-10 w-10 rounded-full bg-green-600 flex items-center justify-center">
-            <Leaf className="h-6 w-6 text-white" />
+          <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
           </div>
           <span className="font-bold text-2xl text-green-700 dark:text-green-400">{t("app.name")}</span>
         </div>

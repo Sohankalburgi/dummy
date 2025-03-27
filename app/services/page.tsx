@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-
+import logo from "../../public/Krishi Bhoomi AI.png"
 import { useState } from "react"
 import { useLanguage } from "@/components/language-provider"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -59,15 +59,15 @@ export default function ServicesPage() {
     setOpen(true)
   }
 
-  const handleSubmit = async(e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const token = localStorage.getItem('user');
     const userId = localStorage.getItem('userId');
     // In a real app, this would submit to an API
     console.log("Booking service:", selectedService, formData)
 
-    const response = await axios.post('http://localhost:4000/service/booking',{
-      data : {
+    const response = await axios.post('http://localhost:4000/service/booking', {
+      data: {
         name: formData.name,
         phone: formData.phone,
         state: formData.state,
@@ -75,33 +75,33 @@ export default function ServicesPage() {
         district: formData.district,
         type: selectedService,
         land: formData.land,
-        crop: formData.crop, 
-        userId : userId,
+        crop: formData.crop,
+        userId: userId,
       },
       headers: {
         'Accept-Language': 'en',
       }
     });
 
-    if(response.status === 200 || response.data.success){
+    if (response.status === 200 || response.data.success) {
 
-    toast({
-      title: "Service Booked",
-      description: `Your ${selectedService} service has been booked successfully.`,
-      duration: 5000,
-    })
+      toast({
+        title: "Service Booked",
+        description: `Your ${selectedService} service has been booked successfully.`,
+        duration: 5000,
+      })
 
-    setOpen(false)
-    setFormData({
-      name: "",
-      phone: "",
-      state: "",
-      country: "",
-      district: "",
-      land: "",
-      crop: "", // Updated cropType to crop
-    })
-  }
+      setOpen(false)
+      setFormData({
+        name: "",
+        phone: "",
+        state: "",
+        country: "",
+        district: "",
+        land: "",
+        crop: "", // Updated cropType to crop
+      })
+    }
   }
 
   const container = {
@@ -138,10 +138,10 @@ export default function ServicesPage() {
       icon: Drone,
       color: "bg-blue-100 dark:bg-blue-900",
       iconColor: "text-blue-600 dark:text-blue-400",
-      features: ["Disease detection", "Crop suggestion", "Multi-cropping", "Manure and pesticide optimization", "Expert advice and support", "Community access","includes yearly crop season optimised care"]
+      features: ["Disease detection", "Crop suggestion", "Multi-cropping", "Manure and pesticide optimization", "Expert advice and support", "Community access", "includes yearly crop season optimised care"]
       ,
     },
-  
+
   ]
 
   const arecanutDiseases = [
@@ -278,7 +278,11 @@ export default function ServicesPage() {
 
                 <div className="flex flex-col items-center text-center">
                   <div className="h-12 w-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
-                    <Leaf className="h-6 w-6 text-green-600 dark:text-green-400" />
+                    <Image
+                      src={logo}
+                      alt="Logo"
+                      className="h-8 w-8 rounded-full"
+                    />
                   </div>
                   <h3 className="font-medium mb-2">Treatment Plans</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -531,7 +535,7 @@ export default function ServicesPage() {
                   </SelectContent>
                 </Select>
               </div>
-              
+
             </div>
             <DialogFooter>
               <Button type="submit" className="bg-green-600 hover:bg-green-700 text-white">

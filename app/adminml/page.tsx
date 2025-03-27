@@ -6,7 +6,8 @@ import axios from 'axios';
 import { Leaf } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-
+import logo from "../../public/Krishi Bhoomi AI.png"
+import Image from 'next/image';
 export default function SoilInputForm() {
     const [formData, setFormData] = useState({
         userId: '',
@@ -72,7 +73,11 @@ export default function SoilInputForm() {
                 flex gap-6 bg-green-400 p-5 justify-between'>
                     <div className='flex gap-4'>
                         <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
-                            <Leaf className="h-4 w-4 text-white" />
+                        <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8 rounded-full"
+              />
                         </div>
                         <span className="font-bold text-lg">Krishi Bhoomi AI</span>
                     </div>
