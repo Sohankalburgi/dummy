@@ -124,7 +124,7 @@ export default function SignupPage() {
           </div>
         </div>
 
-        <div className="text-sm opacity-70">© 2025 AgroTech. All rights reserved.</div>
+        <div className="text-sm opacity-70">© 2025 Krishi Bhoomi AI. All rights reserved.</div>
       </div>
 
       {/* Right side - Signup form */}

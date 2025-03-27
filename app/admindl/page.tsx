@@ -57,7 +57,7 @@ export default function ImageInputForm() {
                         <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
                             <Leaf className="h-4 w-4 text-white" />
                         </div>
-                        <span className="font-bold text-lg">AgroTech</span>
+                        <span className="font-bold text-lg">Krishi Bhoomi AI</span>
                     </div>
                     <div className='flex gap-6'>
                         <Link href={"/adminDashboard"}> Dashboard</Link>

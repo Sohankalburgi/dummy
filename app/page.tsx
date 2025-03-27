@@ -11,6 +11,7 @@ import drone from "../public/Screenshot 2025-03-07 183451.png"
 import farm1 from "../public/a-man-in-a-turban-stands-in-a-field-ai-generated-free-photo.jpg"
 import farm2 from "../public/happy-indian-farmer-his-farm_510370-880.jpg"
 import farm3 from "../public/portrait-smiling-indian-farmer-with-field-tractor-background_975284-5481.jpg"
+import rover from "../public/WhatsApp Image 2025-03-25 at 08.01.30_657f3c67.jpg"
 import {
   Leaf,
   ChevronRight,
@@ -27,7 +28,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
-
+import all from ".././public/Agitech (1).png"
 export default function LandingPage() {
   const { t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
@@ -70,7 +71,7 @@ export default function LandingPage() {
       name: "Rajesh Kumar",
       role: "Areca Nut Farmer",
       content:
-        "AgroTech's disease detection system helped me identify koleroga disease early, saving over 70% of my plantation.",
+        "Krishi Bhoomi AI's disease detection system helped me identify koleroga disease early, saving over 70% of my plantation.",
       image: farm1,
     },
     {
@@ -84,7 +85,7 @@ export default function LandingPage() {
       name: "Dr. Suresh Gowda",
       role: "Agricultural Scientist",
       content:
-        "The precision of AgroTech's disease prediction algorithms for areca nut is impressive. A game-changer for farmers.",
+        "The precision of Krishi Bhoomi AI's disease prediction algorithms for areca nut is impressive. A game-changer for farmers.",
       image: farm3,
     },
   ]
@@ -258,8 +259,9 @@ export default function LandingPage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  src="/placeholder.svg?height=400&width=600"
+                <Image
+                
+                  src={all}
                   alt="Areca nut plantation with drone monitoring"
                   className="w-full h-auto"
                 />
@@ -421,10 +423,10 @@ export default function LandingPage() {
                 </TabsContent>
                 <TabsContent value="rover" className="mt-0">
                   <div className="rounded-xl overflow-hidden shadow-lg">
-                    <img
-                      src="/placeholder.svg?height=300&width=500"
+                    <Image
+                      src={rover}
                       alt="Rover analyzing areca nut plants"
-                      className="w-full h-auto"
+                      className="w-full h-45"
                     />
                     <div className="p-4 bg-white dark:bg-gray-900">
                       <h3 className="font-medium text-lg mb-2">Ground-Level Analysis</h3>
@@ -738,7 +740,7 @@ export default function LandingPage() {
           </div>
 
           <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-600 dark:text-gray-400">© 2025 AgroTech. All rights reserved.</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">© 2025 Krishi Bhoomi AI. All rights reserved.</p>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
               <LanguageSelector />
               <ThemeToggle />

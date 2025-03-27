@@ -381,11 +381,11 @@ export default function YourDataPage() {
 
         <TabsContent value="ml">
           <div className="p-4 bg-gray-100 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-2">Machine Learning Model</h2>
-            <p>AI ML Soil Testing Analysis.</p>
+            <h2 className="text-2xl  text-black font-semibold mb-2">Machine Learning Model</h2>
+            <p className="text-black">AI ML Soil Testing Analysis.</p>
 <br/>
-            <h2 className="text-xl font-bold">Summary</h2>
-            <div className="space-y-2 flex ">
+            <h2 className="text-xl font-bold text-black">Summary</h2>
+            <div className="space-y-2 flex text-black ">
            {ml?.message?.mldata || ""}
             </div>
           </div>
@@ -397,15 +397,16 @@ export default function YourDataPage() {
             <p>Details about your DL model go here for Plant health.</p>
             <br/>
             <h2 className="text-xl font-bold">Summary</h2>
-            <div>
+            <div className="w-full flex justify-center mb-3"> 
               <Image
               src={`https://omzbh3ymi3.ufs.sh/f/${dl?.message?.imageKey}`}
               alt="Image"
               width={400}
               height={400}
+              className="rounded-lg"
               />
             </div>
-            <div className="space-y-2 flex ">
+            <div className="space-y-2 flex text-black px-5 ">
               {dl?.message?.answer || ""}
             </div>
           </div>

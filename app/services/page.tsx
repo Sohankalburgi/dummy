@@ -23,6 +23,12 @@ import { useToast } from "@/components/ui/use-toast"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import axios from "axios"
 
+import koleroga from "../../public/OIP (1).jpeg"
+import yellow from "../../public/OIP (2).jpeg"
+import steam from "../../public/download.jpeg"
+import bud from "../../public/Symptom-expression-due-to-bud-rot-disease-on-arecanut_Q640.jpg"
+import Image from "next/image"
+
 export default function ServicesPage() {
   const { t } = useLanguage()
   const { toast } = useToast()
@@ -146,7 +152,7 @@ export default function ServicesPage() {
       symptoms: "Black spots on nuts, premature nut drop, rotting of nuts, black patches on leaves.",
       detection:
         "Our drones detect early color changes in the canopy, while rovers analyze fungal presence on lower nuts.",
-      image: "/placeholder.svg?height=200&width=300",
+      image: koleroga,
     },
     {
       name: "Yellow Leaf Disease",
@@ -154,7 +160,7 @@ export default function ServicesPage() {
       symptoms: "Progressive yellowing of leaves, stunted growth, reduced yield, eventual plant death.",
       detection:
         "Multispectral imaging from drones identifies spectral signatures of infected plants before visible symptoms appear.",
-      image: "/placeholder.svg?height=200&width=300",
+      image: yellow,
     },
     {
       name: "Bud Rot",
@@ -162,14 +168,14 @@ export default function ServicesPage() {
       symptoms: "Yellowing of the spear leaf, rotting of the bud, wilting of young leaves, plant death.",
       detection:
         "Thermal imaging from drones detects temperature variations in the crown, while rovers analyze spore presence.",
-      image: "/placeholder.svg?height=200&width=300",
+      image: bud,
     },
     {
       name: "Stem Bleeding",
       description: "A fungal disease causing reddish-brown liquid to ooze from the trunk.",
       symptoms: "Reddish-brown liquid oozing from cracks in the trunk, decay of internal tissues.",
       detection: "Rovers with specialized sensors detect early fluid seepage and analyze trunk integrity.",
-      image: "/placeholder.svg?height=200&width=300",
+      image: steam,
     },
   ]
 
@@ -183,10 +189,10 @@ export default function ServicesPage() {
       </div>
 
       <Tabs defaultValue="services" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="services">Services</TabsTrigger>
           <TabsTrigger value="areca-nut">Areca Nut Disease Detection</TabsTrigger>
-          <TabsTrigger value="pricing">Pricing</TabsTrigger>
+          {/* <TabsTrigger value="pricing">Pricing</TabsTrigger> */}
         </TabsList>
 
         <TabsContent value="services" className="space-y-6">
@@ -300,7 +306,7 @@ export default function ServicesPage() {
                     className="grid md:grid-cols-3 gap-4 border-b border-gray-200 dark:border-gray-800 pb-6 last:border-0 last:pb-0"
                   >
                     <div className="md:col-span-1">
-                      <img
+                      <Image
                         src={disease.image || "/placeholder.svg"}
                         alt={disease.name}
                         className="w-full h-auto rounded-lg object-cover"

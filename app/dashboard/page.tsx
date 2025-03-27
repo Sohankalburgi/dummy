@@ -113,7 +113,7 @@ export default function DashboardPage() {
             />
             <div className="space-y-4">
               <p>
-                AgroTech provides modern solutions for agriculture, helping farmers optimize their crop yields and
+              Krishi Bhoomi AI provides modern solutions for agriculture, helping farmers optimize their crop yields and
                 reduce costs through technology.
               </p>
               <p>

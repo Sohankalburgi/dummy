@@ -14,7 +14,7 @@ type LanguageContextType = {
 const translations = {
   en: {
     // Common
-    "app.name": "AgroTech",
+    "app.name": "Krishi Bhoomi AI",
     "nav.home": "Home",
     "nav.services": "Services",
     "nav.chatbot": "AI Chatbot",
@@ -65,12 +65,12 @@ const translations = {
     "crop.submit": "Get Suggestions",
 
     // Dashboard
-    "dashboard.welcome": "Welcome to AgroTech",
+    "dashboard.welcome": "Welcome to Krishi Bhoomi AI",
     "dashboard.subtitle": "Modern solutions for agriculture",
   },
   hi: {
     // Common
-    "app.name": "एग्रोटेक",
+    "app.name": "कृषि भूमि AI",
     "nav.home": "होम",
     "nav.services": "सेवाएं",
     "nav.chatbot": "AI चैटबॉट",
@@ -119,12 +119,12 @@ const translations = {
     "crop.submit": "सुझाव प्राप्त करें",
 
     // Dashboard
-    "dashboard.welcome": "एग्रोटेक में आपका स्वागत है",
+    "dashboard.welcome": "कृषि भूमि AI में आपका स्वागत है",
     "dashboard.subtitle": "कृषि के लिए आधुनिक समाधान",
   },
   kn: {
     // Common
-    "app.name": "ಅಗ್ರೋಟೆಕ್",
+    "app.name": "ಕೃಷಿ ಭೂಮಿ AI",
     "nav.home": "ಮುಖಪುಟ",
     "nav.services": "ಸೇವೆಗಳು",
     "nav.chatbot": "AI ಚಾಟ್‌ಬಾಟ್",
@@ -175,7 +175,7 @@ const translations = {
     "crop.submit": "ಸಲಹೆಗಳನ್ನು ಪಡೆಯಿರಿ",
 
     // Dashboard
-    "dashboard.welcome": "ಅಗ್ರೋಟೆಕ್‌ಗೆ ಸುಸ್ವಾಗತ",
+    "dashboard.welcome": "ಕೃಷಿ ಭೂಮಿ AI ಸುಸ್ವಾಗತ",
     "dashboard.subtitle": "ಕೃಷಿಗೆ ಆಧುನಿಕ ಪರಿಹಾರಗಳು",
   },
 }
